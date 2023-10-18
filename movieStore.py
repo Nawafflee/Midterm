@@ -28,20 +28,36 @@ class MovieStore:
         return self._lateFeePerDay
     
     #setters
-    def setStoreName(self,storeName):
-        self._storeName = storeName
-    
-    def setTotalNumberofMovies(self,totalNumberOfMovies):
-        self._totalNumberOfMovies = totalNumberOfMovies
-    
-    def setNumberOfAvailableMovies(self,numberOfAvailableMovies):
-        self._numberOfAvailableMovies = numberOfAvailableMovies
     
     def setRentalFee(self,rentalFeePermovie):
-        self._rentalFeePerMovie = rentalFeePermovie
+            if rentalFeePermovie < 0:
+                return "Rejected Variable"
+            else:
+                return rentalFeePermovie
     
-    def setLateFeePerDay(self,lateFeePerDay):
-        self._lateFeePerDay = lateFeePerDay
+
+    def calculateLateFee(self):
+        numberOfDays = input("Input the Number of Days: ")
+        return numberOfDays * self._lateFeePerDay
+    
+    def rentMovie(self,moviesToRent,numberOfAvailableMovies):
+        moviesToRent = moviesToRent - numberOfAvailableMovies     
+        if moviesToRent > numberOfAvailableMovies :
+            return True
+        else:
+             return False
+    
+    def returnMovie(self,numberOfMoviesReturned,numberOfAvailableMovies):
+        number_of_overdue_days = input("Number of Overdue days: ")
+        lateFee = None
+        if number_of_overdue_days > 0:
+            number_of_overdue_days * lateFee
+            numberOfMoviesReturned +=1
+            numberOfAvailableMovies +=1
 
     
+             
+              
+
     
+
